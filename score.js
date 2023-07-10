@@ -39,6 +39,7 @@ allFileContents.split(/\r?\n/).forEach(line =>  {
 
 client.on('connected', () => {
   client.say(channel, totalScore); 
+  process.exit(); 
 }); 
 
 
