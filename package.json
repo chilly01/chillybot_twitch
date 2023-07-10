@@ -1,0 +1,18 @@
+{
+  "name": "ch_twitch",
+  "version": "1.0.0",
+  "description": "selfteach",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "mysql": "^2.18.1",
+    "play-sound": "^1.1.5",
+    "readline": "^1.3.0",
+    "tmi.js": "^1.8.5"
+  }
+}
