@@ -33,7 +33,7 @@ fs.watchFile(filepath , () => {
     placeText = (place > 3) ? `${place}th` : places[place-1];  
     messArray = _.split(_.trim(line), ','); 
     if (typeof messArray[1] !== 'undefined'){    
-      totalScore += (place == 0) ? '' : ` ${placeText} ${messArray[2]} * (${messArray[4]}) points * --`; 
+      totalScore += (place == 0) ? '' : ` * ${placeText} ${messArray[2]} - (${messArray[4]}) points * --`; 
     }
     place++;
   });
