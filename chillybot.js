@@ -142,7 +142,7 @@ client.on('message', (channel, user, message, self) =>{
             break; 
         case "!moral": 
           sayMessage=true; 
-          reps = `Wheel of Morality, turn turn turn, tells us the lessions that we must learn. 
+          reps = `Wheel of Morality, turn turn turn, tell us the lessions that we must learn. 
            --- ${morals.morals[_.random(morals.morals.length - 1)]}`;
           break; 
         case "!roa":
