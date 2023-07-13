@@ -4,6 +4,7 @@ const PointManager = pts.PointManager;
 //const {allFileContents} = require('score.js'); 
 const pm = new PointManager(); 
 const _ = require('lodash'); 
+var player = require('play-sound')(opts = {}); 
 const morals = require('./settings/w-morals.json'); 
 const rules = require('./settings/rulesofaccu.json'); 
 const tmi = require('tmi.js'), 
@@ -132,6 +133,13 @@ client.on('message', (channel, user, message, self) =>{
           reps = `${user.username} has flipped the table ${flips} time(s)`; 
           sayMessage = true; 
           break; 
+        case '!homer':
+            reps = `${user.username} want's a homer laugh`; 
+            player.play('./homerl.mp3', {mplayer: []},function(err){
+              console.error(err); 
+            }); 
+            sayMessage = true; 
+            break; 
         case "!moral": 
           sayMessage=true; 
           reps = `Wheel of Morality, turn turn turn, tells us the lessions that we must learn. 
