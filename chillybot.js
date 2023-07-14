@@ -135,7 +135,7 @@ client.on('message', (channel, user, message, self) =>{
           break; 
         case '!homer':
             reps = `${user.username} want's a homer laugh`; 
-            player.play('./homerl.mp3', {mplayer: []},function(err){
+            player.play('./sounds/homerl.mp3', {mplayer: []},function(err){
               console.error(err); 
             }); 
             sayMessage = true; 
@@ -191,7 +191,14 @@ client.on('message', (channel, user, message, self) =>{
           }
         case '!play':
           if (user.username == "chillyard01"){
-            reps = "!play "; 
+            reps = "!play 2"; 
+            console.log(channel); 
+            if (channel == "#chillyard01"){
+              console.log('hareas')
+              player.play('./sounds/45secstoroll.mp3', {mplayer: []},function(err){
+                console.error(err); 
+            }); 
+            }
             sayMessage = true; 
           }   
           break; 

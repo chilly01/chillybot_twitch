@@ -19,11 +19,11 @@ const options = {
   };   
   const client = new tmi.Client(options); 
   client.connect().catch(console.error); 
-  
+  let totalScore = 0; 
   let places = ['1st','2nd','3rd']; 
   let place = 0; 
   let placeText = ''; 
-  let totalScore = '-- '; 
+  let streamMessage = '-- '; 
   let messArray = []; 
 
   function updateChat(filename){
@@ -31,14 +31,19 @@ const options = {
     allFileContents.split(/\r?\n/).forEach(line =>  {
       placeText = (place > 3) ? `${place}th` : places[place-1];  
       messArray = _.split(_.trim(line), ','); 
-      if (typeof messArray[1] !== 'undefined' && messArray[4] != '0'){    
-        totalScore += (place == 0) ? '' : ` * ${placeText} ${messArray[2]} - (${messArray[4]}) points * --`; 
+      
+      if (typeof messArray[1] !== 'undefined' && messArray[4] != '0' && (place != 0) ){  
+        totalScore += parseInt(messArray[4]);   
+        streamMessage += ` * ${placeText} ${messArray[2]} - (${messArray[4]}) points * --`; 
       }
       place++;
   });  
-    client.say(channel, totalScore); 
-    totalScore = ''; 
+
+  streamMessage += ` ** Total points for this race ${totalScore} **`
+    client.say(channel, streamMessage); 
+    streamMessage = ''; 
     place = 0;
+    totalScore = 0; 
   }
 
 fs.watchFile(filepath , () => {
