@@ -20,6 +20,7 @@ const options = {
   const client = new tmi.Client(options); 
   client.connect().catch(console.error); 
   let totalScore = 0; 
+  let sessionscore = 0; 
   let places = ['1st','2nd','3rd']; 
   let place = 0; 
   let placeText = ''; 
@@ -37,9 +38,9 @@ const options = {
         streamMessage += ` * ${placeText} ${messArray[2]} - (${messArray[4]}) points * --`; 
       }
       place++;
-  });  
-
-  streamMessage += ` ** Total points for this race ${totalScore} **`
+  }); 
+  sessionscore += totalScore;  
+  streamMessage += ` ** Total points for this race ${totalScore}  session ${sessionscore}**`
     client.say(channel, streamMessage); 
     streamMessage = ''; 
     place = 0;
@@ -53,4 +54,5 @@ fs.watchFile(filepath , () => {
 fs.watchFile(filepathb , () => {
   updateChat(filepathb); 
 });
+
 

@@ -1,5 +1,6 @@
 
 const pts = require('./pointManager'); 
+const score = require('./score'); 
 const PointManager = pts.PointManager; 
 //const {allFileContents} = require('score.js'); 
 const pm = new PointManager(); 
@@ -194,7 +195,6 @@ client.on('message', (channel, user, message, self) =>{
             reps = "!play 2"; 
             console.log(channel); 
             if (channel == "#chillyard01"){
-              console.log('hareas')
               player.play('./sounds/45secstoroll.mp3', {mplayer: []},function(err){
                 console.error(err); 
             }); 
