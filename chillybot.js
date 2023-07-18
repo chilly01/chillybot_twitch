@@ -1,8 +1,6 @@
 
 const pts = require('./pointManager'); 
-const score = require('./score'); 
 const PointManager = pts.PointManager; 
-//const {allFileContents} = require('score.js'); 
 const pm = new PointManager(); 
 const _ = require('lodash'); 
 var player = require('play-sound')(opts = {}); 
@@ -23,10 +21,10 @@ const options = {
   // "sleepypan", 
   // "ohmygross",
   // "thetonyblacks",
-	 "dewinblack", 
+	// "dewinblack", 
   // "blizzardgurrl",
   // "ltdigilusion",
-  // "broncomomma",
+   "broncomomma",
   // "gingrbredbeauty",
 	// "amouranth",
 	// "yeahs_kingdom"
@@ -117,9 +115,13 @@ client.on('message', (channel, user, message, self) =>{
         reps = "It's not rigged ... you just need to get gud!!"; 
         sayMessage = true; 
         break; 
+        case '!boost': 
+          reps = "You are an incredibly sensitive person, who inspires joy-joy feelings in all those around you!!!"; 
+          sayMessage = true; 
+        break; 
         case '!cookie': 
-        reps = "Today me will live in the moment unless it's unpleasant in which case me will eat a cookie! -- Cookie Monster"; 
-        sayMessage = true; 
+          reps = "Today me will live in the moment unless it's unpleasant in which case me will eat a cookie! -- Cookie Monster"; 
+          sayMessage = true; 
         break; 
         case '!exc': 
           reps = "Excellence is never an accident. It is always the result of high intention, sincere effort and intelligent execution."; 
