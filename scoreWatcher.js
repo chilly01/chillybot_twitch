@@ -21,30 +21,50 @@ const options = {
   client.connect().catch(console.error); 
   let totalScore = 0; 
   let sessionscore = 0; 
+  let racecount = 0; 
   let places = ['1st','2nd','3rd']; 
   let place = 0; 
   let placeText = ''; 
   let streamMessage = '-- '; 
   let messArray = []; 
+let leaderboard = {};
+
+  function updateLeaderboard(playerName, points, raceTime) {
+    if (!leaderboard[playerName]) {
+      leaderboard[playerName] = {
+        races: [],
+        totalPoints: 0
+      };
+    }
+    leaderboard[playerName].races.push({
+      points,
+      time: raceTime,
+    });
+    leaderboard[playerName].totalPoints += points;
+  }
 
   function updateChat(filename){
+    racecount++; 
     let allFileContents = fs.readFileSync(filename, 'utf-8');
     allFileContents.split(/\r?\n/).forEach(line =>  {
       placeText = (place > 3) ? `${place}th` : places[place-1];  
       messArray = _.split(_.trim(line), ','); 
       
-      if (typeof messArray[1] !== 'undefined' && messArray[4] != '0' && (place != 0) ){  
-        totalScore += parseInt(messArray[4]);   
-        streamMessage += ` * ${placeText} ${messArray[2]} - (${messArray[4]}) points * --`; 
+      if (typeof messArray[1] !== 'undefined' && messArray[4] != '0' && (place != 0) ){ 
+        let score =  parseInt(messArray[4]); 
+        totalScore += score;  
+        updateLeaderboard(messArray[2], score, messArray[5]);  
+        streamMessage += ` * ${placeText} ${messArray[2]} - (${score}) points * --`; 
       }
       place++;
   }); 
   sessionscore += totalScore;  
-  streamMessage += ` ** Total points for this race ${totalScore}  session ${sessionscore}**`
+  streamMessage += ` ** Accumlative points for this race ${totalScore} :: Total Points for the stream ${sessionscore} of ${racecount} races**`
     client.say(channel, streamMessage); 
     streamMessage = ''; 
     place = 0;
     totalScore = 0; 
+    console.log(JSON.stringify(leaderboard)); 
   }
 
 fs.watchFile(filepath , () => {
