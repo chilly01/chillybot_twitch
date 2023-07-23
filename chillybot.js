@@ -21,7 +21,7 @@ const options = {
   // "sleepypan", 
   // "ohmygross",
   // "thetonyblacks",
-	// "dewinblack", 
+	 "dewinblack", 
   // "blizzardgurrl",
   // "ltdigilusion",
   // "broncomomma",
@@ -52,7 +52,7 @@ client.on('message', (channel, user, message, self) =>{
     myMessages++; 
     if(self) return; 
     let sayMessage = false; 
-    let reps = ""; 
+    let reply = ""; 
 	  let umess = message.toLowerCase(); 
 
     let messArray = _.split(_.trim(umess), ' '); 
@@ -65,30 +65,30 @@ client.on('message', (channel, user, message, self) =>{
       switch(messArray[m]){
   // chilly chips management 
         case '!slots': 
-          reps =  pm.slots(user.username); 
+          reply =  pm.slots(user.username); 
           sayMessage = true; 
         break;
         case '!add':
           if (user.username == "chillyard01"){
-            reps = pm.addChips(messArray[m+1]); 
+            reply = pm.addChips(messArray[m+1]); 
             sayMessage = true;
           } 
           break; 
         case "!flipcoin": 
-          reps = pm.gambleChips(user.username); 
+          reply = pm.gambleChips(user.username); 
           sayMessage = true; 
           break; 
         case '!chips': 
-          reps =  pm.getPlayer(user.username); 
+          reply =  pm.getPlayer(user.username); 
           sayMessage = true; 
           break; 
         case '!claim': 
-          reps = "under construction"; 
+          reply = "under construction"; 
           sayMessage = true; 
           break;
   // chat actions 
         case '!help': 
-        reps = `Help -- commands - 
+        reply = `Help -- commands - 
           !slots,
           !flipcoin,
           !chips,
@@ -104,40 +104,40 @@ client.on('message', (channel, user, message, self) =>{
         sayMessage = true; 
         break; 
         case '!callit': 
-        reps = "Hello IT ... Have you tried turning it off and on again?  ... Is it plugged in??"; 
+        reply = "Hello IT ... Have you tried turning it off and on again?  ... Is it plugged in??"; 
         sayMessage = true; 
         break;  
         case '!log':
-          reps = `It's log, log... It's big, it's heavy, it's wood... It's log, log, it's better than bad, it's good.  Everyone want a log!`;     
+          reply = `It's log, log... It's big, it's heavy, it's wood... It's log, log, it's better than bad, it's good.  Everyone want a log!`;     
           sayMessage = true; 
         break; 
         case '!rigged': 
-        reps = "It's not rigged ... you just need to get gud!!"; 
+        reply = "It's not rigged ... you just need to get gud!!"; 
         sayMessage = true; 
         break; 
         case '!boost': 
-          reps = "You are an incredibly sensitive person, who inspires joy-joy feelings in all those around you!!!"; 
+          reply = "You are an incredibly sensitive person, who inspires joy-joy feelings in all those around you!!!"; 
           sayMessage = true; 
         break; 
         case '!cookie': 
-          reps = "Today me will live in the moment unless it's unpleasant in which case me will eat a cookie! -- Cookie Monster"; 
+          reply = "Today me will live in the moment unless it's unpleasant in which case me will eat a cookie! -- Cookie Monster"; 
           sayMessage = true; 
         break; 
         case '!exc': 
-          reps = "Excellence is never an accident. It is always the result of high intention, sincere effort and intelligent execution."; 
+          reply = "Excellence is never an accident. It is always the result of high intention, sincere effort and intelligent execution."; 
           sayMessage = true; 
         break;
         case '!rumgone': 
-          reps = "Because it is a vile drink that turns even the most respectable men into complete scoundrels."; 
+          reply = "Because it is a vile drink that turns even the most respectable men into complete scoundrels."; 
           sayMessage = true; 
         break;
         case '!fliptable':
           flips++; 
-          reps = `${user.username} has flipped the table ${flips} time(s)`; 
+          reply = `${user.username} has flipped the table ${flips} time(s)`; 
           sayMessage = true; 
           break; 
         case '!homer':
-            reps = `${user.username} want's a homer laugh`; 
+            reply = `${user.username} want's a homer laugh`; 
             player.play('./sounds/homerl.mp3', {mplayer: []},function(err){
               console.error(err); 
             }); 
@@ -145,56 +145,56 @@ client.on('message', (channel, user, message, self) =>{
             break; 
         case "!moral": 
           sayMessage=true; 
-          reps = `Wheel of Morality, turn turn turn, tell us the lessions that we must learn. 
+          reply = `Wheel of Morality, turn turn turn, tell us the lessions that we must learn. 
            --- ${morals.morals[_.random(morals.morals.length - 1)]}`;
           break; 
         case "!roa":
           sayMessage=true; 
           var roa = rules.rules[_.random(rules.rules.length - 1)]; 
-          reps = `Here's one of the Rules of Acquisition  
+          reply = `Here's one of the Rules of Acquisition  
           ---  Rule #${roa["Number"]} --- ${roa["Rule"]}`;
         break; 
   // game code management 
         case '!code': 
-          reps = `The current room code is: ${adjustableCode}`; 
+          reply = `The current room code is: ${adjustableCode}`; 
           sayMessage = true; 
           break; 
         case '!setcode':
           if (user.username == "chillyard01"){
             adjustableCode = _.toUpper(messArray[m+1]);
-            reps = `The new room code has been set to: ${adjustableCode}`; 
+            reply = `The new room code has been set to: ${adjustableCode}`; 
             sayMessage = true;
           } 
           break; 
 // cody only actions
         case '!chaton':   
         if (user.username == "chillyard01"){
-          reps = "Userchat enabled";
+          reply = "Userchat enabled";
           useMessage = true; 
           sayMessage = true; 
       } 
       break; 
       case '!chatoff':   
         if (user.username == "chillyard01"){
-          reps = "Userchat enabled"; //"!mos faq !play "; 
+          reply = "Userchat enabled"; //"!mos faq !play "; 
           useMessage = false; 
       } 
       break; 
         case '!reqjob':   
           if (user.username == "chillyard01"){
-            reps = "!request jobjob"; //"!mos faq !play "; 
+            reply = "!request jobjob"; //"!mos faq !play "; 
             sayMessage = true; 
         } 
         break; 
         case '!target': 
           if (user.username == "chillyard01"){
-            reps = "!target @PixelByPixel_Bot"; 
+            reply = "!target @PixelByPixel_Bot"; 
             sayMessage = true; 
             break; 
           }
         case '!play':
           if (user.username == "chillyard01"){
-            reps = "!play 2"; 
+            reply = "!play 2"; 
             console.log(channel); 
             if (channel == "#chillyard01"){
               player.play('./sounds/45secstoroll.mp3', {mplayer: []},function(err){
@@ -206,7 +206,7 @@ client.on('message', (channel, user, message, self) =>{
           break; 
         case '!plinko':
           if (user.username == "chillyard01"){
-            reps = "!plinko"; //"!mos faq !play "; 
+            reply = "!plinko"; //"!mos faq !play "; 
             sayMessage = true; 
           }   
           break; 
@@ -224,11 +224,11 @@ client.on('message', (channel, user, message, self) =>{
     if (sayMessage){
       console.log (`channel: ${channel}`); 
       if (useMessage ){ //&& channel == "#dewinblack") {
-        client.say(channel, reps);
+        client.say(channel, reply);
       } 
-      console.log(`message: ${reps}`); 
+      console.log(`message: ${reply}`); 
     }
-    // console.log(`Input : ${JSON.stringify(users)}, ${JSON.stringify(messArray)} , ${user.username} , ${myMessages} , ${reps} , ${sayMessage}`); 
+    // console.log(`Input : ${JSON.stringify(users)}, ${JSON.stringify(messArray)} , ${user.username} , ${myMessages} , ${reply} , ${sayMessage}`); 
   });  
  
 
