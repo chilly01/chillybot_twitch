@@ -4,8 +4,10 @@ const PointManager = pts.PointManager;
 const pm = new PointManager(); 
 const _ = require('lodash'); 
 var player = require('play-sound')(opts = {}); 
-const morals = require('./settings/w-morals.json'); 
-const rules = require('./settings/rulesofaccu.json'); 
+const morals = require('./data/w-morals.json'); 
+const rules = require('./data/rulesofaccu.json'); 
+const jokes = require('./data/jokes.json'); 
+const quotes = require('./data/quotes.json'); 
 const tmi = require('tmi.js'), 
   {channel, username, password } = require('./settings/t-settings.json'); 
 const options = {
@@ -144,9 +146,20 @@ client.on('message', (channel, user, message, self) =>{
             sayMessage = true; 
             break; 
         case "!moral": 
-          sayMessage=true; 
-          reply = `Wheel of Morality, turn turn turn, tell us the lessions that we must learn. 
-           --- ${morals.morals[_.random(morals.morals.length - 1)]}`;
+            sayMessage=true; 
+            reply = `Wheel of Morality, turn turn turn, tell us the lessions that we must learn. 
+               --- ${morals.morals[_.random(morals.morals.length - 1)]}`;
+            break; 
+        case "!saying": 
+            sayMessage=true;
+            var qt = quotes[_.random(quotes.length - 1)];  
+            reply = `${qt["Quote"]} - ${qt["Author"]}`;
+            break; 
+        case "!joke": 
+            sayMessage=true; 
+            var joke = jokes.jokes[_.random(jokes.jokes.length-1)]; 
+            console.log(JSON.stringify(joke)); 
+            reply = `Joke #${joke["ID"]} -- ${joke["Joke"]}`; 
           break; 
         case "!roa":
           sayMessage=true; 
@@ -179,6 +192,12 @@ client.on('message', (channel, user, message, self) =>{
           reply = "Userchat enabled"; //"!mos faq !play "; 
           useMessage = false; 
       } 
+      case '!died': 
+        if (channel == "#chillyard01"){
+          player.play('./sounds/mom_died.mp3', {mplayer: []},function(err){
+            console.error(err); 
+          }); 
+        }
       break; 
         case '!reqjob':   
           if (user.username == "chillyard01"){
@@ -193,10 +212,10 @@ client.on('message', (channel, user, message, self) =>{
             break; 
           }
         case '!play':
-          if (user.username == "chillyard01"){
+          if (user.username == "chillyard01" || user.username == 'rngenccombo' ){
             reply = "!play 2"; 
             console.log(channel); 
-            if (channel == "#chillyard01"){
+            if (channel == "#chillyard01" && user.username == "chillyard01"){
               player.play('./sounds/45secstoroll.mp3', {mplayer: []},function(err){
                 console.error(err); 
             }); 

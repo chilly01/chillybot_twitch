@@ -1,0 +1,618 @@
+{ "rules" : [
+ {
+   "Number": 0,
+   "Rule": "What the Nagus wants, we acquire."
+ },
+ {
+   "Number": 1,
+   "Rule": "Once you have their money... you never give it back."
+ },
+ {
+   "Number": 2,
+   "Rule": "The best deal is the one that brings the most profit."
+ },
+ {
+   "Number": 2,
+   "Rule": "Money is everything."
+ },
+ {
+   "Number": 3,
+   "Rule": "Never spend more for an acquisition than you have to."
+ },
+ {
+   "Number": 4,
+   "Rule": "Sedition and treason are always profitable."
+ },
+ {
+   "Number": 5,
+   "Rule": "Always exaggerate your estimates."
+ },
+ {
+   "Number": 6,
+   "Rule": "Never allow family to stand in the way of opportunity."
+ },
+ {
+   "Number": 7,
+   "Rule": "Keep your ears open."
+ },
+ {
+   "Number": 8,
+   "Rule": "Small print leads to large risk."
+ },
+ {
+   "Number": 9,
+   "Rule": "Opportunity plus instinct equals profit."
+ },
+ {
+   "Number": 10,
+   "Rule": "Greed is eternal."
+ },
+ {
+   "Number": 13,
+   "Rule": "Anything worth doing is worth doing for money."
+ },
+ {
+   "Number": 14,
+   "Rule": "Sometimes the quickest way to find profits is to let them find you."
+ },
+ {
+   "Number": 15,
+   "Rule": "Dead men close no deals."
+ },
+ {
+   "Number": 16,
+   "Rule": "A deal is a deal... until a better one comes along."
+ },
+ {
+   "Number": 17,
+   "Rule": "A contract is a contract is a contract... but only between Ferengi"
+ },
+ {
+   "Number": 18,
+   "Rule": "A Ferengi without profit is no Ferengi at all."
+ },
+ {
+   "Number": 19,
+   "Rule": "Satisfaction is not guaranteed."
+ },
+ {
+   "Number": 20,
+   "Rule": "He who dives under the table today lives to profit tomorrow."
+ },
+ {
+   "Number": 21,
+   "Rule": "Never place friendship above profit."
+ },
+ {
+   "Number": 22,
+   "Rule": "A wise man can hear profit in the wind."
+ },
+ {
+   "Number": 23,
+   "Rule": "Nothing is more important than your health... except for your money."
+ },
+ {
+   "Number": 27,
+   "Rule": "There's nothing more dangerous than an honest businessman."
+ },
+ {
+   "Number": 29,
+   "Rule": "What's in it for me?"
+ },
+ {
+   "Number": 30,
+   "Rule": "\"Confidentiality equals profit.\""
+ },
+ {
+   "Number": 31,
+   "Rule": "Never make fun of a Ferengi's mother. Insult something he cares about instead."
+ },
+ {
+   "Number": 33,
+   "Rule": "It never hurts to suck up to the boss."
+ },
+ {
+   "Number": 34,
+   "Rule": "War is good for business."
+ },
+ {
+   "Number": 35,
+   "Rule": "Peace is good for business."
+ },
+ {
+   "Number": 37,
+   "Rule": "The early investor reaps the most interest."
+ },
+ {
+   "Number": 39,
+   "Rule": "Don't tell customers more than they need to know."
+ },
+ {
+   "Number": 40,
+   "Rule": "She can touch your lobes but never your latinum. "
+ },
+ {
+   "Number": 41,
+   "Rule": "Profit is its own reward."
+ },
+ {
+   "Number": 43,
+   "Rule": "Feed your greed, but not enough to choke it."
+ },
+ {
+   "Number": 44,
+   "Rule": "Never confuse wisdom with luck."
+ },
+ {
+   "Number": 45,
+   "Rule": "Expand or die."
+ },
+ {
+   "Number": 47,
+   "Rule": "Don't trust a man wearing a better suit than your own."
+ },
+ {
+   "Number": 48,
+   "Rule": "The bigger the smile, the sharper the knife."
+ },
+ {
+   "Number": 52,
+   "Rule": "Never ask when you can take."
+ },
+ {
+   "Number": 53,
+   "Rule": "Never trust anybody taller than you."
+ },
+ {
+   "Number": 54,
+   "Rule": "Rate divided by time equals profit. (Also known as \"The Velocity of Wealth.\")"
+ },
+ {
+   "Number": 55,
+   "Rule": "Take joy from profit, and profit from joy."
+ },
+ {
+   "Number": 57,
+   "Rule": "Good customers are as rare as latinum—treasure them."
+ },
+ {
+   "Number": 58,
+   "Rule": "There is no substitute for success."
+ },
+ {
+   "Number": 59,
+   "Rule": "Free advice is seldom cheap."
+ },
+ {
+   "Number": 60,
+   "Rule": "Keep your lies consistent."
+ },
+ {
+   "Number": 62,
+   "Rule": "The riskier the road, the greater the profit."
+ },
+ {
+   "Number": 63,
+   "Rule": "Work is the best therapy-at least for your employees."
+ },
+ {
+   "Number": 65,
+   "Rule": "Win or lose, there's always Hupyrian beetle snuff"
+ },
+ {
+   "Number": 66,
+   "Rule": "Someone's always got bigger ears."
+ },
+ {
+   "Number": 68,
+   "Rule": "Risk doesn't always equal reward."
+ },
+ {
+   "Number": 69,
+   "Rule": "Ferengi are not responsible for the stupidity of other races."
+ },
+ {
+   "Number": 74,
+   "Rule": "Knowledge equals profit."
+ },
+ {
+   "Number": 75,
+   "Rule": "Home is where the heart is... but the stars are made of latinum."
+ },
+ {
+   "Number": 76,
+   "Rule": "Every once in a while, declare peace. It confuses the hell out of your enemies."
+ },
+ {
+   "Number": 77,
+   "Rule": "If you break it, I'll charge you for it!"
+ },
+ {
+   "Number": 79,
+   "Rule": "Beware of the Vulcan greed for knowledge. "
+ },
+ {
+   "Number": 82,
+   "Rule": "The flimsier the product, the higher the price."
+ },
+ {
+   "Number": 85,
+   "Rule": "Never let the competition know what you're thinking."
+ },
+ {
+   "Number": 87,
+   "Rule": "Learn the customer's weaknesses, so that you can better take advantage of him."
+ },
+ {
+   "Number": 88,
+   "Rule": "It ain't over 'til its over."
+ },
+ {
+   "Number": 88,
+   "Rule": "Vengeance will cost you everything."
+ },
+ {
+   "Number": 89,
+   "Rule": "Ask not what your profits can do for you, but what you can do for your profits."
+ },
+ {
+   "Number": 89,
+   "Rule": "[It is] better to lose some profit and live than lose all profit and die."
+ },
+ {
+   "Number": 92,
+   "Rule": "There are many paths to profit."
+ },
+ {
+   "Number": 94,
+   "Rule": "Females and finances don't mix."
+ },
+ {
+   "Number": 95,
+   "Rule": "Expand or die."
+ },
+ {
+   "Number": 97,
+   "Rule": "Enough... is never enough."
+ },
+ {
+   "Number": 98,
+   "Rule": "Every man has his price."
+ },
+ {
+   "Number": 98,
+   "Rule": "If you can't take it with you, don't go."
+ },
+ {
+   "Number": 99,
+   "Rule": "Trust is the biggest liability of all."
+ },
+ {
+   "Number": 100,
+   "Rule": "When it's good for business, tell the truth."
+ },
+ {
+   "Number": 101,
+   "Rule": "Profit trumps emotion."
+ },
+ {
+   "Number": 102,
+   "Rule": "Nature decays, but latinum lasts forever."
+ },
+ {
+   "Number": 103,
+   "Rule": "Sleep can interfere with opportunity."
+ },
+ {
+   "Number": 104,
+   "Rule": "Faith moves mountains... of inventory."
+ },
+ {
+   "Number": 106,
+   "Rule": "There is no honor in poverty."
+ },
+ {
+   "Number": 108,
+   "Rule": "Hope doesn't keep the lights on."
+ },
+ {
+   "Number": 108,
+   "Rule": "A woman wearing clothes is like a man without any profits."
+ },
+ {
+   "Number": 109,
+   "Rule": "Dignity and an empty sack is worth the sack."
+ },
+ {
+   "Number": 110,
+   "Rule": "Exploitation begins at home."
+ },
+ {
+   "Number": 111,
+   "Rule": "Treat people in your debt like family... exploit them."
+ },
+ {
+   "Number": 112,
+   "Rule": "Never have sex with the boss' sister."
+ },
+ {
+   "Number": 113,
+   "Rule": "Always have sex with the boss."
+ },
+ {
+   "Number": 117,
+   "Rule": "You can't free a fish from water."
+ },
+ {
+   "Number": 121,
+   "Rule": "Everything is for sale, even friendship."
+ },
+ {
+   "Number": 122,
+   "Rule": "Never Sleep with the bosses sister"
+ },
+ {
+   "Number": 123,
+   "Rule": "Even a blind man can recognize the glow of Latinum."
+ },
+ {
+   "Number": 125,
+   "Rule": "You can't make a deal if you're dead."
+ },
+ {
+   "Number": 135,
+   "Rule": "Listen to secrets, but never repeat them."
+ },
+ {
+   "Number": 139,
+   "Rule": "Wives serve, brothers inherit."
+ },
+ {
+   "Number": 141,
+   "Rule": "Only fools pay retail."
+ },
+ {
+   "Number": 144,
+   "Rule": "There's nothing wrong with charity... as long as it winds up in your pocket."
+ },
+ {
+   "Number": 147,
+   "Rule": "People love the bartender."
+ },
+ {
+   "Number": 151,
+   "Rule": "Even when you're a customer, sell yourself."
+ },
+ {
+   "Number": 153,
+   "Rule": "Sell the sizzle, not the steak."
+ },
+ {
+   "Number": 162,
+   "Rule": "Even in the worst of times someone turns a profit."
+ },
+ {
+   "Number": 168,
+   "Rule": "Whisper your way to success."
+ },
+ {
+   "Number": 177,
+   "Rule": "Know your enemies... but do business with them always."
+ },
+ {
+   "Number": 181,
+   "Rule": "Not even dishonesty can tarnish the shine of profit."
+ },
+ {
+   "Number": 183,
+   "Rule": "When life hands you ungaberries, make detergent. "
+ },
+ {
+   "Number": 184,
+   "Rule": "A Ferengi waits to bid until his opponents have exhausted themselves."
+ },
+ {
+   "Number": 188,
+   "Rule": "Not even dishonesty can tarnish the shine of profit."
+ },
+ {
+   "Number": 189,
+   "Rule": "Let others keep their reputation. You keep their money."
+ },
+ {
+   "Number": 190,
+   "Rule": "Hear all, trust nothing."
+ },
+ {
+   "Number": 192,
+   "Rule": "Never cheat a Klingon... unless you're sure you can get away with it. "
+ },
+ {
+   "Number": 193,
+   "Rule": "Trouble comes in threes."
+ },
+ {
+   "Number": 193,
+   "Rule": "It's never too late to fire the staff."
+ },
+ {
+   "Number": 194,
+   "Rule": "It's always good business to know about new customers before they walk in your door."
+ },
+ {
+   "Number": 199,
+   "Rule": "Location, location, location."
+ },
+ {
+   "Number": 200,
+   "Rule": "A Ferengi chooses no side but his own."
+ },
+ {
+   "Number": 202,
+   "Rule": "The justification for profit is profit."
+ },
+ {
+   "Number": 203,
+   "Rule": "New customers are like razor-toothed gree worms. They can be succulent, but sometimes they bite back. "
+ },
+ {
+   "Number": 208,
+   "Rule": "Sometimes, the only thing more dangerous than a question is an answer."
+ },
+ {
+   "Number": 211,
+   "Rule": "Employees are the rungs on the ladder of success. Don't hesitate to step on them."
+ },
+ {
+   "Number": 212,
+   "Rule": "A good lie is easier to believe than the truth."
+ },
+ {
+   "Number": 214,
+   "Rule": "Never begin a (business) negotiation on an empty stomach."
+ },
+ {
+   "Number": 216,
+   "Rule": "Never gamble with a telepath."
+ },
+ {
+   "Number": 217,
+   "Rule": "Always know what you're buying."
+ },
+ {
+   "Number": 217,
+   "Rule": "You can't free a fish from water."
+ },
+ {
+   "Number": 218,
+   "Rule": "Sometimes what you get free costs entirely too much."
+ },
+ {
+   "Number": 219,
+   "Rule": "Possession is eleven-tenths of the law!"
+ },
+ {
+   "Number": 223,
+   "Rule": "Beware the man who doesn't take time for Oo-mox. "
+ },
+ {
+   "Number": 227,
+   "Rule": "If that's what's written, then that's what's written."
+ },
+ {
+   "Number": 229,
+   "Rule": "Latinum lasts longer than lust."
+ },
+ {
+   "Number": 235,
+   "Rule": "Duck; death is tall."
+ },
+ {
+   "Number": 236,
+   "Rule": "You can't buy fate."
+ },
+ {
+   "Number": 239,
+   "Rule": "Never be afraid to mislabel a product."
+ },
+ {
+   "Number": 240,
+   "Rule": "Time, like latinum, is a highly limited commodity."
+ },
+ {
+   "Number": 242,
+   "Rule": "More is good... all is better."
+ },
+ {
+   "Number": 243,
+   "Rule": "Always leave yourself an out."
+ },
+ {
+   "Number": 248,
+   "Rule": "The definition of insanity is trying the same failed scheme & expecting different results"
+ },
+ {
+   "Number": 255,
+   "Rule": "A wife is luxury... a smart accountant a neccessity."
+ },
+ {
+   "Number": 257,
+   "Rule": "When the messenger comes to appropriate your profits, kill the messenger."
+ },
+ {
+   "Number": 261,
+   "Rule": "A wealthy man can afford anything except a conscience."
+ },
+ {
+   "Number": 263,
+   "Rule": "Never allow doubt to tarnish your lust for latinum."
+ },
+ {
+   "Number": 266,
+   "Rule": "When in doubt, lie."
+ },
+ {
+   "Number": 267,
+   "Rule": "If you believe it, they believe it."
+ },
+ {
+   "Number": 272,
+   "Rule": "Always inspect the merchandise before making a deal."
+ },
+ {
+   "Number": 280,
+   "Rule": "If it ain't broke, don't fix it."
+ },
+ {
+   "Number": 284,
+   "Rule": "Deep down, everyone's a Ferengi."
+ },
+ {
+   "Number": 285,
+   "Rule": "No good deed ever goes unpunished."
+ },
+ {
+   "Number": 286,
+   "Rule": "When Morn leaves, it's all over."
+ },
+ {
+   "Number": 287,
+   "Rule": "Always get somebody else to do the lifting."
+ },
+ {
+   "Number": 288,
+   "Rule": "Never get into anything that you can't get out of."
+ },
+ {
+   "Number": 289,
+   "Rule": "A man is only worth the sum of his possessions."
+ },
+ {
+   "Number": 290,
+   "Rule": "An angry man is an enemy, and a satisfied man is an ally."
+ },
+ {
+   "Number": 291,
+   "Rule": "The less employees know about the cash flow, the smaller the share they can demand."
+ },
+ {
+   "Number": 292,
+   "Rule": "Only a fool passes up a business opportunity."
+ },
+ {
+   "Number": 293,
+   "Rule": "The more time they take deciding, the more money they will spend."
+ },
+ {
+   "Number": 294,
+   "Rule": "A bargain usually isn't."
+ },
+ {
+   "Number": 299,
+   "Rule": "Whenever you exploit someone, it never hurts to thank them...That way it's easier to exploit them the next time."
+ },
+ {
+   "Number": 431,
+   "Rule": "When the shooting starts, let the mercenaries handle it!"
+ }
+]}
