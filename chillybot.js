@@ -41,13 +41,16 @@ var flips = 0;
 var users = [];  
 var adjustableCode = "XXXX"; 
 var useMessage = true; 
+var welcome = false; 
 
 // connect to twitch
 const client = new tmi.Client(options); 
 client.connect().catch(console.error); 
 
 client.on('connected', () => {
-    client.say(channel, "Have no fear the ChillyBot is HERE!!!"); 
+  if(welcome){
+    client.say(channel, "Have no fear the ChillyBot is HERE!!!");
+  } 
 }); 
 
 client.on('message', (channel, user, message, self) =>{
@@ -60,6 +63,10 @@ client.on('message', (channel, user, message, self) =>{
     let messArray = _.split(_.trim(umess), ' '); 
 
     if (!_.includes(users, user.username)){
+      if (welcome){
+        client.say(channel, `*** WELCOME IN ${user.username} ***`); 
+      }
+       
       pm.setPlayer(user.username, channel); 
     }
 
@@ -101,6 +108,8 @@ client.on('message', (channel, user, message, self) =>{
           !rumgone,
           !fliptable,
           !moral,
+          !saying, 
+          !joke,
           !roa,
           !exc ---`; 
         sayMessage = true; 
@@ -180,11 +189,18 @@ client.on('message', (channel, user, message, self) =>{
           } 
           break; 
 // cody only actions
-        case '!chaton':   
-        if (user.username == "chillyard01"){
-          reply = "Userchat enabled";
-          useMessage = true; 
-          sayMessage = true; 
+      case '!chaton':   
+      if (user.username == "chillyard01"){
+        reply = "Userchat enabled";
+        useMessage = true; 
+        sayMessage = true; 
+      } 
+      break; 
+      case '!togglew':   
+      if (user.username == "chillyard01"){
+        welcome = !welcome; 
+        reply = "Welcome changed ";
+        sayMessage = true; 
       } 
       break; 
       case '!chatoff':   
@@ -216,7 +232,7 @@ client.on('message', (channel, user, message, self) =>{
             reply = "!play 2"; 
             console.log(channel); 
             if (channel == "#chillyard01" && user.username == "chillyard01"){
-              player.play('./sounds/45secstoroll.mp3', {mplayer: []},function(err){
+              player.play('./sounds/new_tilt1.mp3', {mplayer: []},function(err){
                 console.error(err); 
             }); 
             }
