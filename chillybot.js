@@ -19,17 +19,9 @@ const options = {
     identity : {
       username, password
     }, 
-    channels: [channel,
-  // "sleepypan", 
-  // "ohmygross",
-  // "thetonyblacks",
-	 "dewinblack", 
-  // "blizzardgurrl",
-  // "ltdigilusion",
+    channels: [channel, // use other channels only if you are allowed
+	 //  "dewinblack", 
   // "broncomomma",
-  // "gingrbredbeauty",
-	// "amouranth",
-	// "yeahs_kingdom"
 ]}; 
 
 // get players into memory 
@@ -93,6 +85,10 @@ client.on('message', (channel, user, message, self) =>{
           break; 
         case '!claim': 
           reply = "under construction"; 
+          sayMessage = true; 
+          break;
+        case '!gamble': 
+          reply = "!gamble all"; 
           sayMessage = true; 
           break;
   // chat actions 
@@ -229,10 +225,10 @@ client.on('message', (channel, user, message, self) =>{
           }
         case '!play':
           if (user.username == "chillyard01" || user.username == 'rngenccombo' ){
-            reply = "!play 2"; 
+            reply = "!play 4"; 
             console.log(channel); 
             if (channel == "#chillyard01" && user.username == "chillyard01"){
-              player.play('./sounds/new_tilt1.mp3', {mplayer: []},function(err){
+              player.play('./sounds/new_tilt2.mp3', {mplayer: []},function(err){
                 console.error(err); 
             }); 
             }
