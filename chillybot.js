@@ -20,7 +20,7 @@ const options = {
       username, password
     }, 
     channels: [channel, // use other channels only if you are allowed
-	 //  "dewinblack", 
+	//   "dewinblack", 
   // "broncomomma",
 ]}; 
 
@@ -177,13 +177,13 @@ client.on('message', (channel, user, message, self) =>{
           reply = `The current room code is: ${adjustableCode}`; 
           sayMessage = true; 
           break; 
-        case '!setcode':
-          if (user.username == "chillyard01"){
-            adjustableCode = _.toUpper(messArray[m+1]);
-            reply = `The new room code has been set to: ${adjustableCode}`; 
-            sayMessage = true;
-          } 
-          break; 
+          case '!setcode':
+            if (user.username == "chillyard01"){
+              adjustableCode = _.toUpper(messArray[m+1]);
+              reply = `The new room code has been set to: ${adjustableCode}`; 
+              sayMessage = true;
+            } 
+            break;  
 // cody only actions
       case '!chaton':   
       if (user.username == "chillyard01"){
