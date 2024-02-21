@@ -20,7 +20,7 @@ const options = {
       username, password
     }, 
     channels: [channel, // use other channels only if you are allowed
-	//   "dewinblack", 
+	// "dewinblack", 
   // "broncomomma",
 ]}; 
 
@@ -65,7 +65,7 @@ client.on('message', (channel, user, message, self) =>{
     for (let m = 0; m < messArray.length; m++){
       switch(messArray[m]){
   // chilly chips management 
-        case '!slots': 
+        case '!slots_new': 
           reply =  pm.slots(user.username); 
           sayMessage = true; 
         break;
@@ -211,36 +211,42 @@ client.on('message', (channel, user, message, self) =>{
           }); 
         }
       break; 
-        case '!reqjob':   
-          if (user.username == "chillyard01"){
-            reply = "!request jobjob"; //"!mos faq !play "; 
-            sayMessage = true; 
-        } 
-        break; 
-        case '!target': 
-          if (user.username == "chillyard01"){
-            reply = "!target @PixelByPixel_Bot"; 
-            sayMessage = true; 
-            break; 
-          }
-        case '!play':
-          if (user.username == "chillyard01" || user.username == 'rngenccombo' ){
-            reply = "!play 4"; 
-            console.log(channel); 
-            if (channel == "#chillyard01" && user.username == "chillyard01"){
-              player.play('./sounds/new_tilt2.mp3', {mplayer: []},function(err){
-                console.error(err); 
+      case '!reqjob':   
+        if (user.username == "chillyard01"){
+          reply = "!request jobjob"; //"!mos faq !play "; 
+          sayMessage = true; 
+      } 
+      break; 
+      case '!target': 
+        if (user.username == "chillyard01"){
+          reply = "!target @PixelByPixel_Bot"; 
+          sayMessage = true; 
+        }
+      break; 
+      case '!play':
+        if (user.username == "chillyard01" || user.username == 'rngenccombo' ){
+          reply = "!play 4"; 
+          console.log(channel); 
+          if (channel == "#chillyard01" && user.username == "chillyard01"){
+            player.play('./sounds/new_tilt2.mp3', {mplayer: []},function(err){
+            console.error(err); 
             }); 
-            }
-            sayMessage = true; 
-          }   
-          break; 
+          }
+          sayMessage = true; 
+        }   
+        break; 
         case '!plinko':
           if (user.username == "chillyard01"){
             reply = "!plinko"; //"!mos faq !play "; 
             sayMessage = true; 
           }   
           break; 
+        case '!pit':
+          if (user.username == "chillyard01"){
+            reply = "!pit"; //"!mos faq !play "; 
+            sayMessage = true; 
+          }   
+        break; 
 // default catches if a message has already been seen
         default:
           if(sayMessage){
