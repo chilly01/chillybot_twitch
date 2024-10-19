@@ -3,6 +3,9 @@
  
 // Importing the filesystem module
 const fs = require('fs');
+const pts = require('./pointManager'); 
+const PointManager = pts.PointManager; 
+const pm = new PointManager(); 
 const _ = require('lodash'); 
 const tmi = require('tmi.js'), 
   {channel, username, password, filepath, filepathb } = require('./settings/t-settings.json'); 
@@ -52,8 +55,10 @@ let leaderboard = {};
       
       if (typeof messArray[1] !== 'undefined' && messArray[4] != '0' && (place != 0) ){ 
         let score =  parseInt(messArray[4]); 
+        let name = messArray[2]; 
         totalScore += score;  
-        updateLeaderboard(messArray[2], score, messArray[5]);  
+        updateLeaderboard(name, score, messArray[5]);  
+        pm.setRacePlayerPoints(name, score, racecount); 
         streamMessage += ` * ${placeText} ${messArray[2]} - (${score}) points * --`; 
       }
       place++;

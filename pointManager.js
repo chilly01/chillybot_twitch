@@ -6,6 +6,7 @@ moment.prototype.toMySqlDateTime = function () {
 };
 
 let chips = [];
+let season = 54; 
 
 class PointManager {  
   constructor(){
@@ -129,6 +130,28 @@ class PointManager {
         console.log(JSON.stringify(chips)); 
       }
     });
+    return 0; 
+  }
+
+  getTiltpoints(player = "rngenccombo", client = null, channel = null){
+    let x = 'pnts'; 
+    let myquery = `SELECT sum(points) as pnts FROM twitchpoints.tiltpoints where season = ${season} and player = "${player}"`; 
+    this.con.query(myquery, function (err, result) {
+      if (err) { 
+        console.log(JSON.stringify(err)); 
+      };
+      if (!(typeof result === 'undefined')) {
+        let y = result[0]; 
+        let playerscore = y[x];  
+        console.log(y[x]); 
+        if (playerscore){
+          client.say(channel, `${player} total tilt points: ${JSON.stringify(playerscore)}` ); 
+        } else {
+          client.say(channel, `${player} doesn't have any tilt points yet` ); 
+        }
+      }
+    }); 
+    return ''; 
   }
 
   setPlayer(name, stream = 'unset'){
@@ -148,6 +171,31 @@ class PointManager {
     }); 
       return mes; 
   }
+
+  setTiltPlayerPoints(name, points, round = 0, seed = ""){
+    let myDate =  moment().toMySqlDateTime();
+    let myquery = "INSERT into twitchpoints.tiltpoints (player, points, date, season, modifier, round) VALUES (?, ?, ?, ?, ?, ?)"; 
+    this.con.query(myquery, [name, points, myDate, season, seed, round], function(err, result) {
+      if(err){
+        console.log(` error setting tiltpoints - ${JSON.stringify(err)}`); 
+      }
+      console.log(JSON.stringify(result)); 
+    }); 
+    return "tilt_player_processed"; 
+  }
+
+  setRacePlayerPoints(name, points, round = 0, seed = "race"){
+    let myDate =  moment().toMySqlDateTime();
+    let myquery = "INSERT into twitchpoints.racepoints (player, points, date, season, modifier, round) VALUES (?, ?, ?, ?, ?, ?)"; 
+    this.con.query(myquery, [name, points, myDate, season, seed, round], function(err, result) {
+      if(err){
+        console.log(` error setting tiltpoints - ${JSON.stringify(err)}`); 
+      }
+      console.log(JSON.stringify(result)); 
+    }); 
+    return "tilt_player_processed"; 
+  }
+
   
   getPlayer(name){
     if (typeof chips[name] === 'undefined')

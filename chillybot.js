@@ -20,7 +20,7 @@ const options = {
       username, password
     }, 
     channels: [channel, // use other channels only if you are allowed
-	// "dewinblack", 
+  // "dewinblack", 
   // "broncomomma",
 ]}; 
 
@@ -33,7 +33,7 @@ var flips = 0;
 var users = [];  
 var adjustableCode = "XXXX"; 
 var useMessage = true; 
-var welcome = false; 
+var welcome = (options.channels.length == 1) ; 
 
 // connect to twitch
 const client = new tmi.Client(options); 
@@ -91,6 +91,10 @@ client.on('message', (channel, user, message, self) =>{
           reply = "!gamble all"; 
           sayMessage = true; 
           break;
+        case '!tiltpoints' : 
+        case '!tps' :
+         reply = pm.getTiltpoints(user.username, client, channel); 
+         break; 
   // chat actions 
         case '!help': 
         reply = `Help -- commands - 
