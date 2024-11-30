@@ -17,7 +17,6 @@ const options = {
     }, 
     channels: [channel]
   };   
-let encodingFile = "F:\\files\\encoding.txt";
 let leaderboard = "F:\\files\\leaderboard.txt"; 
 let tpfile = "C:\\Users\\Cody Hillyard\\AppData\\Local\\MarblesOnStream\\Saved\\SaveGames\\LastTiltLevelPlayers.csv"; 
 
@@ -30,6 +29,7 @@ let totals = {};
 let streamMessage = ''; 
 let end = true; 
 let levelValue = 1; 
+let encoding = ''; 
 
 
 function levelComplete(filename){
@@ -38,12 +38,11 @@ function levelComplete(filename){
   end = true; 
 
   const buffer = fs.readFileSync(filename);
-  let encoding = chardet.detect(buffer);
-  if (encoding === 'ISO-8859-2') {
-    encoding = "utf8"; 
-  }
+  encoding = chardet.detect(buffer);  
   console.log(`Detected encoding: ${encoding}`);
-  streamMessage = `Level survivors: `; 
+  if (encoding !== 'UTF-8') console.log(encoding); 
+  if (encoding !== 'UTF-16LE') encoding = "utf8"; 
+  streamMessage = `Level ${levelValue} survivors: `; 
   let allFileContents = fs.readFileSync(filename, encoding);
   allFileContents.split(/\r?\n/).forEach(line =>  {
     messArray = _.split(_.trim(line), ','); 
@@ -62,7 +61,6 @@ function levelComplete(filename){
     }
     count++; 
   }); 
-  console.log(end); 
   levelValue++;
   if (end){
     levelValue= 1; 
