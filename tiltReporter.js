@@ -2,12 +2,10 @@
  
 // Importing the filesystem module
 const fs = require('fs');
+const chardet = require('chardet');
 const _ = require('lodash'); 
-const pts = require('./pointManager'); 
-const PointManager = pts.PointManager; 
-const pm = new PointManager(); 
 const tmi = require('tmi.js'), 
-  {channel, username, password } = require('./settings/t-settings.json'); 
+  {channel, username, password} = require('./settings/t-settings.json'); 
 const options = {
     options: {debug: true}, 
     connection : {
@@ -19,74 +17,84 @@ const options = {
     }, 
     channels: [channel]
   };   
-let titlefile = "F:\\files\\seed.txt"
-let filepath = "F:\\files\\tilt_results.txt"; 
+let encodingFile = "F:\\files\\encoding.txt";
 let leaderboard = "F:\\files\\leaderboard.txt"; 
+let tpfile = "C:\\Users\\Cody Hillyard\\AppData\\Local\\MarblesOnStream\\Saved\\SaveGames\\LastTiltLevelPlayers.csv"; 
 
 const client = new tmi.Client(options); 
 client.connect().catch(console.error); 
-
-let racecount = 0;
-let totalscore = 0; 
+ 
 let place = 0; 
-let placeText = ''; 
 let messArray = []; 
 let totals = {}; 
+let streamMessage = ''; 
+let end = true; 
+let levelValue = 1; 
 
-function updateChat(filename){
-  placeText = ''; 
-  totalscore = 0; 
-  racecount++; 
-  let allFileContents = fs.readFileSync(filename, 'utf-8');
-  let seed = fs.readFileSync(titlefile, 'utf-8');
+
+function levelComplete(filename){
+  let count = 0; 
+  let num = 0;
+  end = true; 
+
+  const buffer = fs.readFileSync(filename);
+  let encoding = chardet.detect(buffer);
+  if (encoding === 'ISO-8859-2') {
+    encoding = "utf8"; 
+  }
+  console.log(`Detected encoding: ${encoding}`);
+  streamMessage = `Level survivors: `; 
+  let allFileContents = fs.readFileSync(filename, encoding);
   allFileContents.split(/\r?\n/).forEach(line =>  {
-    messArray = _.split(_.trim(line), '\t'); 
-    if (typeof messArray[1] !== 'undefined'){
-      place++; 
-      let name = messArray[0]; 
-      let score = parseInt(messArray[1]); 
-      totalscore += score; 
-      placeText += `, ${name} (${score})`; 
-      pm.setTiltPlayerPoints(name, score, racecount, seed); 
-      if (totals[name]){
-        totals[name] += score; 
-      } else {
-        totals[name] = score; 
+    messArray = _.split(_.trim(line), ','); 
+    if (count > 0){
+      num = parseInt(messArray[2]);
+      if (num > 0) {
+        let name = messArray[1]; 
+        streamMessage +=`${name} (${num}), `; 
+        end = false; 
+        if (totals[name]){
+          totals[name] += num; 
+        } else {
+          totals[name] = num; 
+        }
       }
     }
+    count++; 
   }); 
-  placeText = `** We just !died --  Total Score for round ${racecount} (${totalscore})` + placeText; 
-  
-  let scoreArray = Object.keys(totals).map(name => ({ name, score: totals[name] }));
-  scoreArray.sort((a, b) => b.score - a.score);
-  place = 1; 
-  let top5Scores = scoreArray.slice(0, 8);
-  let lb = `Today's Leaders: \r\n`; 
-  top5Scores.forEach(x => {
-    if (x.name == "Chillyard01" || x.name == "rngenccombo" || x.name == "chillybot01" || place > 5){
-      
-    } else {
-      lb += `${place}) ${x.name} - (${x.score})\r\n`;
-      place++;  
-    }
-  });  
+  console.log(end); 
+  levelValue++;
+  if (end){
+    levelValue= 1; 
+    streamMessage= "We all !died ... I blame myself"; 
+  } else {
+    let scoreArray = Object.keys(totals).map(name => ({ name, score: totals[name] }));
+    scoreArray.sort((a, b) => b.score - a.score);
+    place = 1; 
+    let top5Scores = scoreArray.slice(0, 8);
+    let lb = `Today's Leaders: \r\n`; 
+    top5Scores.forEach(x => {
+      if (x.name == "Chillyard01" || x.name == "rngenccombo" || x.name == "chillybot01" || place > 5){
+        
+      } else {
+        lb += `${place}) ${x.name} - (${x.score})\r\n`;
+        place++;  
+      }
+    });  
 
-  lb += `\r\n`; 
-  console.log(top5Scores); 
-  fs.writeFile(leaderboard, lb, err => {
-    if (err){
-      console.log(err); 
-    } else {
-      console.log("leaderboard updated"); 
-    }
-  }); 
-  
-  client.say(channel, placeText); 
-  place = 0; 
-
+    lb += `\r\n`; 
+    fs.writeFile(leaderboard, lb, err => {
+      if (err){
+        console.log(err); 
+      } else {
+        end = true; 
+      }
+    }); 
+  }
+  client.say(channel, streamMessage);   
 }
 
 
-fs.watchFile(filepath, () => {
-  updateChat(filepath); 
+fs.watchFile(tpfile, () => {
+  levelComplete(tpfile); 
 }); 
